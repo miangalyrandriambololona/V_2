@@ -1,0 +1,35 @@
+        body {
+            background-color: #f8f9fa; /* clair pour contraste */
+        }
+        h1 {
+            color: #556B2F; /* vert olive */
+            margin-bottom: 30px;
+        }
+        .btn-olive {
+            background-color: #556B2F;
+            color: white;
+        }
+        .btn-olive:hover {
+            background-color: #6B8E23; /* un vert olive un peu plus clair au hover */
+            color: white;
+        }
+        a {
+            color: #556B2F;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+            color: #6B8E23;
+        }
+        .login-container {
+            max-width: 400px;
+            margin: 80px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(85, 107, 47, 0.3);
+        }
+        label {
+            font-weight: 600;
+            color: #556B2F;
+        }

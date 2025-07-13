@@ -1,0 +1,56 @@
+:root {
+    --olive: #6b8e23;
+    --olive-dark: #556b2f;
+    --olive-light: #7fa340;
+}
+
+body {
+    background-color: #f4f4f4;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+h2 {
+    color: var(--olive-dark);
+}
+
+.btn-olive {
+    background-color: var(--olive);
+    color: white;
+    border: none;
+}
+
+.btn-olive:hover {
+    background-color: var(--olive-dark);
+}
+
+.card {
+    background-color: var(--olive-dark);
+    color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 100%;
+}
+
+.card-img-top {
+    height: 220px;
+    object-fit: cover;
+}
+
+.card-title {
+    color: white;
+    font-size: 1.25rem;
+}
+
+.card-text {
+    color: #f1f1f1;
+}
+
+.no-objets {
+    color: var(--olive-dark);
+    text-align: center;
+    font-style: italic;
+}
+
+.container .row {
+    min-height: 400px;
+}

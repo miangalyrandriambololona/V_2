@@ -1,0 +1,9 @@
+CREATE OR REPLACE VIEW v_objets_membres_emprunt_en_cours AS
+SELECT 
+    o.id_membre,
+    o.nom_objet,
+    e.date_retour
+FROM exam_objet o
+LEFT JOIN exam_emprunt e 
+    ON o.id_objet = e.id_objet 
+    AND e.date_retour >= CURRENT_DATE;

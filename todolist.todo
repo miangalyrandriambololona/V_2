@@ -1,0 +1,50 @@
+Version 1:
+     - membre(id_membre, nom, date_de_naissance, genre, email, ville, mdp, image_profil)
+
+    - categorie_objet(id_categorie, nom_categorie)
+    - objet(id_objet, nom_objet, id_categorie, id_membre)
+    - images_objet(id_image, id_objet, nom_image)
+    - emprunt(id_emprunt, id_objet, id_membre, date_emprunt, date_retour)
+
+
+    Login et inscription:
+        - statique:
+            - page html avec css et bootstrap
+        - dynamique
+            - traitement_login(atao anaty session izay atsofoka ao anaty formulaire, raha mi-existe dia makany @ liste des objets sinon makany @ inscription) et traitement_inscription(atsofoka anaty utilisateur)
+
+    Liste des objets:
+        - statique:
+            - page pour afficher(miantso fonction)
+            - bootstrap et css
+        - dynamique
+            - view v_objets_membres_emprunt_en_cours 
+            - fonction asiana view(etObjetsMembreConnecte)
+
+    Filtre par catégorie:
+        - statique :
+            - page pour afficher les objets selon la catégorie (miantso fonction)
+
+            - formulaire avec menu déroulant des catégories
+
+            - utiliser bootstrap et css pour la présentation
+
+        - dynamique :
+            - créer une view v_objets_membres_emprunt_en_cours
+
+            - créer une fonction pour afficher les objets selon la catégorie choisie
+
+            - appeler cette fonction dans la page avec un paramètre id_categorie
+
+            - afficher la catégorie, le nom de l’objet, le nom du propriétaire, la date de retour s’il y a emprunt
+
+    Version 2:
+
+-modification de liste_objet.php
+    changement de la liste en card (car on ajoute des photos)
+    ajouter un bouton ajouter nouvel objet
+    redirection vers nouvel_objet.php(formulaire avec id_objet ,
+    nom_objet ,
+    id_categorie) + formulaire d'upload image pour l'objet
+    un bouton ajouter -> redirection vers liste_objet et un nouvel card s'affiche
+    
