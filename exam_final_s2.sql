@@ -125,6 +125,15 @@ INSERT INTO exam_emprunt (id_emprunt, id_objet, id_membre, date_emprunt, date_re
 (9, 34, 2, '2025-07-09', '2025-07-15'),
 (10, 18, 1, '2025-07-10', '2025-07-16');
 
+CREATE TABLE exam_retour (
+    id_retour INT PRIMARY KEY AUTO_INCREMENT,
+    id_emprunt INT,
+    etat_objet ENUM('ok', 'abime'),
+    date_retour DATE,
+    FOREIGN KEY (id_emprunt) REFERENCES exam_emprunt(id_emprunt)
+);
+
+
 
 
 
