@@ -79,4 +79,15 @@ function emprunterObjet($conn, $id_objet, $nb_jours) {
     return mysqli_query($conn, $sql);
 }
 
+function getEmpruntsParMembre($conn, $id_membre) {
+    $sql = "SELECT e.id_emprunt, o.nom_objet, e.date_emprunt, e.date_retour
+            FROM exam_emprunt e
+            JOIN exam_objet o ON e.id_objet = o.id_objet
+            WHERE e.id_membre = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([$id_membre]);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
 ?>
