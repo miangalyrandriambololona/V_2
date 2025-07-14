@@ -28,7 +28,7 @@ while ($row = mysqli_fetch_assoc($res)) {
 <div class="container mt-5">
     <h2>Ajouter un nouvel objet</h2>
 
-    <form method="post" action="traitement_upload.php" enctype="multipart/form-data" class="mt-4">
+    <form method="post" action="../traitements/traitement_upload.php" enctype="multipart/form-data" class="mt-4">
         <div class="mb-3">
             <label for="nom_objet" class="form-label">Nom de l'objet</label>
             <input type="text" name="nom_objet" id="nom_objet" class="form-control" required>
