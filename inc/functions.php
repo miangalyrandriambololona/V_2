@@ -21,4 +21,23 @@ function getObjetsMembreConnecte($conn) {
 
     return $objets;
 }
+
+function getDetailsObjetComplet($conn, $id_objet) {
+    $id_objet = intval($id_objet);
+
+    $sql = "SELECT * 
+            FROM v_fiche_objet_complet 
+            WHERE id_objet = $id_objet";
+
+    $result = mysqli_query($conn, $sql);
+    
+    $infos = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $infos[] = $row;
+    }
+
+    return $infos;
+}
+
+
 ?>
