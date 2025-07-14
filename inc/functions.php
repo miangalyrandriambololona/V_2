@@ -66,4 +66,17 @@ function getToutesImagesObjet($conn, $id_objet) {
     }
     return $images;
 }
+
+
+function emprunterObjet($conn, $id_objet, $nb_jours) {
+    $date_emprunt = date('Y-m-d');
+
+    $date_retour = date('Y-m-d', strtotime("+$nb_jours days"));
+
+    $sql = "INSERT INTO exam_emprunt (id_objet, date_emprunt, date_retour)
+            VALUES ('$id_objet', '$date_emprunt', '$date_retour')";
+
+    return mysqli_query($conn, $sql);
+}
+
 ?>
