@@ -14,65 +14,43 @@ $listeObjets = getObjetsMembreConnecte($conn);
 <head>
     <meta charset="UTF-8" />
     <title>Mes objets</title>
-
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../assets/styles/liste_objet.css">
-
-    <style>
-       
-    </style>
 </head>
 <body>
 
 <div class="container py-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2> Mes objets</h2>
-        <a href="nouvel_objet.php" class="btn btn-olive">➕ Ajouter un objet</a>
+        <h2>Mes objets</h2>
+        <a href="nouvel_objet.php" class="btn btn-success">➕ Ajouter un objet</a>
     </div>
 
     <?php if (empty($listeObjets)) : ?>
         <p class="text-center text-muted">Aucun objet trouvé.</p>
     <?php else : ?>
         <div class="row row-cols-1 row-cols-md-3 g-4">
-            <?php foreach ($listeObjets as $objet) : ?>
+            <?php foreach ($listeObjets as $index => $objet) : ?>
+                <?php
+                $imageNom = ($index + 1) . ".jpg";
+                $cheminImage = "../images/" . $imageNom;
+                ?>
                 <div class="col">
                     <div class="card h-100 shadow-sm">
-                        <?php
-                        $image = $objet['image_principale'] ?? 'default.jpg';
-                        ?>
-                        <img src="../images/<?= htmlspecialchars($image) ?>" class="card-img-top" alt="<?= htmlspecialchars($objet['nom_objet']) ?>">
+                        <img src="<?= $cheminImage ?>" class="card-img-top" alt="Image <?= $index + 1 ?>">
                         <div class="card-body">
                             <h5 class="card-title"><?= htmlspecialchars($objet['nom_objet']) ?></h5>
-                            <p class="card-text">
-                            <?= $objet['date_retour'] ? 'Emprunté jusqu\'au : <strong>' . htmlspecialchars($objet['date_retour']) . '</strong>' : '' ?>
-
-                            </p>
+                            <?php if (!empty($objet['date_retour'])) : ?>
+                                <p class="card-text">Emprunté jusqu'au : <strong><?= htmlspecialchars($objet['date_retour']) ?></strong></p>
+                            <?php else : ?>
+                                <p class="card-text text-success">✅ Disponible</p>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
             <?php endforeach; ?>
         </div>
     <?php endif; ?>
-
-    <?php foreach ($listeObjets as $objet): ?>
-    <?php $image = getImagePrincipale($conn, $objet['id_objet']); ?>
-    <div class="col">
-        <div class="card">
-            <img src="../uploads/<?= htmlspecialchars($image) ?>" class="card-img-top" alt="<?= htmlspecialchars($objet['nom_objet']) ?>">
-            <div class="card-body">
-                <h5 class="card-title"><?= htmlspecialchars($objet['nom_objet']) ?></h5>
-                <?php if ($objet['date_retour']) : ?>
-                    <p class="card-text">Emprunté jusqu'au : <strong><?= htmlspecialchars($objet['date_retour']) ?></strong></p>
-                <?php endif; ?>
-            </div>
-        </div>
-    </div>
-<?php endforeach; ?>
-
 </div>
 
-<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
