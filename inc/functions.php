@@ -40,4 +40,29 @@ function getDetailsObjetComplet($conn, $id_objet) {
 }
 
 
+function getImagePrincipale($conn, $id_objet) {
+    $sql = "SELECT nom_image FROM exam_images_objet 
+            WHERE id_objet = $id_objet 
+            ORDER BY id_image ASC LIMIT 1";
+
+    $result = mysqli_query($conn, $sql);
+    if ($row = mysqli_fetch_assoc($result)) {
+        return $row['nom_image'];
+    } else {
+        return "default.jpg"; // Image par défaut si aucune image
+    }
+}
+
+function getToutesImagesObjet($conn, $id_objet) {
+    $sql = "SELECT id_image, nom_image FROM exam_images_objet 
+            WHERE id_objet = $id_objet 
+            ORDER BY id_image ASC";
+
+    $result = mysqli_query($conn, $sql);
+    $images = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $images[] = $row;
+    }
+    return $images;
+}
 ?>

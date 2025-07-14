@@ -1,56 +1,94 @@
 :root {
     --olive: #6b8e23;
-    --olive-dark: #556b2f;
-    --olive-light: #7fa340;
+    --olive-dark: #4a6620;
+    --olive-light: #cddbb2;
+    --text-light: #ffffff;
+    --text-dark: #333;
+    --bg-page: #f7f9f4;
+    --border-color: #d9e0cc;
 }
 
 body {
-    background-color: #f4f4f4;
+    background: var(--bg-page);
     font-family: 'Segoe UI', sans-serif;
+    color: var(--text-dark);
+    margin: 0;
+    padding: 0;
 }
 
 h2 {
     color: var(--olive-dark);
+    font-weight: 600;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
 }
 
+/* Bouton olive propre */
 .btn-olive {
     background-color: var(--olive);
     color: white;
+    padding: 0.5rem 1.2rem;
     border: none;
+    border-radius: 0.4rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
 }
 
 .btn-olive:hover {
     background-color: var(--olive-dark);
 }
 
+/* Cartes */
 .card {
-    background-color: var(--olive-dark);
-    color: white;
-    border-radius: 12px;
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 0.7rem;
     overflow: hidden;
+    transition: transform 0.2s ease;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-4px);
 }
 
 .card-img-top {
-    height: 220px;
+    height: 180px;
     object-fit: cover;
+    background-color: var(--olive-light);
+}
+
+.card-body {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .card-title {
-    color: white;
-    font-size: 1.25rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--olive-dark);
+    margin-bottom: 0.5rem;
 }
 
 .card-text {
-    color: #f1f1f1;
+    font-size: 0.95rem;
+    color: var(--text-dark);
 }
 
 .no-objets {
-    color: var(--olive-dark);
     text-align: center;
     font-style: italic;
+    color: var(--olive-dark);
+    font-size: 1.1rem;
+    margin-top: 2rem;
 }
 
-.container .row {
-    min-height: 400px;
+/* Responsive spacing */
+.container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }

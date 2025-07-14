@@ -17,6 +17,8 @@ $listeObjets = getObjetsMembreConnecte($conn);
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/styles/liste_objet.css">
+
     <style>
        
     </style>
@@ -39,11 +41,12 @@ $listeObjets = getObjetsMembreConnecte($conn);
                         <?php
                         $image = $objet['image_principale'] ?? 'default.jpg';
                         ?>
-                        <img src="../uploads/<?= htmlspecialchars($image) ?>" class="card-img-top" alt="<?= htmlspecialchars($objet['nom_objet']) ?>">
+                        <img src="../images/<?= htmlspecialchars($image) ?>" class="card-img-top" alt="<?= htmlspecialchars($objet['nom_objet']) ?>">
                         <div class="card-body">
                             <h5 class="card-title"><?= htmlspecialchars($objet['nom_objet']) ?></h5>
                             <p class="card-text">
-                                <?= $objet['date_retour'] ? 'Emprunté jusqu\'au : <strong>' . htmlspecialchars($objet['date_retour']) . '</strong>' : '<span class="text-success">✅ Disponible</span>' ?>
+                            <?= $objet['date_retour'] ? 'Emprunté jusqu\'au : <strong>' . htmlspecialchars($objet['date_retour']) . '</strong>' : '' ?>
+
                             </p>
                         </div>
                     </div>
@@ -51,6 +54,22 @@ $listeObjets = getObjetsMembreConnecte($conn);
             <?php endforeach; ?>
         </div>
     <?php endif; ?>
+
+    <?php foreach ($listeObjets as $objet): ?>
+    <?php $image = getImagePrincipale($conn, $objet['id_objet']); ?>
+    <div class="col">
+        <div class="card">
+            <img src="../uploads/<?= htmlspecialchars($image) ?>" class="card-img-top" alt="<?= htmlspecialchars($objet['nom_objet']) ?>">
+            <div class="card-body">
+                <h5 class="card-title"><?= htmlspecialchars($objet['nom_objet']) ?></h5>
+                <?php if ($objet['date_retour']) : ?>
+                    <p class="card-text">Emprunté jusqu'au : <strong><?= htmlspecialchars($objet['date_retour']) ?></strong></p>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+<?php endforeach; ?>
+
 </div>
 
 <!-- Bootstrap JS -->
