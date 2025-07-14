@@ -32,10 +32,14 @@ $listeObjets = getObjetsMembreConnecte($conn);
                 <?php
                 $imageNom = ($index + 1) . ".jpg";
                 $cheminImage = "../images/" . $imageNom;
+
+                $idObjet = $objet['id_objet'] ?? 0;
                 ?>
                 <div class="col">
                     <div class="card h-100 shadow-sm">
-                        <img src="<?= $cheminImage ?>" class="card-img-top" alt="Image <?= $index + 1 ?>">
+                        <a href="fiche_objet.php?id=<?= $idObjet ?>">
+                            <img src="<?= $cheminImage ?>" class="card-img-top" alt="Image <?= $index + 1 ?>">
+                        </a>
                         <div class="card-body">
                             <h5 class="card-title"><?= htmlspecialchars($objet['nom_objet']) ?></h5>
                             <?php if (!empty($objet['date_retour'])) : ?>

@@ -37,6 +37,14 @@ CREATE TABLE exam_emprunt(
     FOREIGN KEY (id_membre) REFERENCES exam_membre(id_membre)
 );
 
+CREATE TABLE exam_objet_images (
+    id_image INT AUTO_INCREMENT PRIMARY KEY,
+    id_objet INT NOT NULL,
+    nom_image VARCHAR(255),
+    FOREIGN KEY (id_objet) REFERENCES exam_objet(id_objet)
+);
+
+
 --4membres
 INSERT INTO exam_membre (id_membre, nom, date_de_naissance, genre, email, ville, mdp, image_profil) VALUES
 (1, 'Fara', '2002-05-14', 'F', 'fara@tsena.mg', 'Antsirabe', 'fara123', 'fara.png'),

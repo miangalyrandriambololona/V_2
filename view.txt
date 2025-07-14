@@ -21,3 +21,4 @@ SELECT
 FROM exam_objet o
 LEFT JOIN exam_objet_images i ON o.id_objet = i.id_objet
 LEFT JOIN exam_emprunt e ON o.id_objet = e.id_objet;
+

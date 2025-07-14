@@ -40,6 +40,7 @@ function getDetailsObjetComplet($conn, $id_objet) {
 }
 
 
+
 function getImagePrincipale($conn, $id_objet) {
     $sql = "SELECT nom_image FROM exam_images_objet 
             WHERE id_objet = $id_objet 
