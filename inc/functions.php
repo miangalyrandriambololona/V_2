@@ -50,7 +50,7 @@ function getImagePrincipale($conn, $id_objet) {
     if ($row = mysqli_fetch_assoc($result)) {
         return $row['nom_image'];
     } else {
-        return "default.jpg"; // Image par défaut si aucune image
+        return "default.jpg"; 
     }
 }
 
