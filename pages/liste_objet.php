@@ -51,6 +51,7 @@ $listeObjets = getObjetsMembreConnecte($conn);
                                 <p class="card-text">Emprunté jusqu'au : <strong><?= htmlspecialchars($objet['date_retour']) ?></strong></p>
                             <?php else : ?>
                                 <p class="card-text text-success">✅ Disponible</p>
+                                <a href="emprunt.php">Emprunter</a>
                             <?php endif; ?>
                         </div>
                     </div>
