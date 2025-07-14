@@ -51,9 +51,14 @@ $listeObjets = getObjetsMembreConnecte($conn);
                                 <p class="card-text">Emprunté jusqu'au : <strong><?= htmlspecialchars($objet['date_retour']) ?></strong></p>
                             <?php else : ?>
                                 <p class="card-text text-success">✅ Disponible</p>
-                                <form action="../traitements/traitement_emprunt.php" method="post" novalidate>Emprunter
 
+                               <form action="../traitements/traitement_emprunt.php" method="post">
+                                    <input type="hidden" name="id_objet" value="<?= $idObjet ?>">
+                                    <label>Durée en jours :</label>
+                                    <input type="text" name="nb_jours" placeholder="Ex : 3">
+                                    <button type="submit">Emprunter</button>
                                 </form>
+
                             <?php endif; ?>
                         </div>
                     </div>
