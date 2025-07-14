@@ -47,4 +47,8 @@ Version 1:
     nom_objet ,
     id_categorie) + formulaire d'upload image pour l'objet
     un bouton ajouter -> redirection vers liste_objet et un nouvel card s'affiche
+
+-creer les fonctions 
+    getImagePrincipale
+    getToutesImagesObjet
     
